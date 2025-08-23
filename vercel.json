@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/:topic/:path*", "destination": "/:topic/:path*" }
+  ],
+  "crons": [
+    { "path": "/api/generate-all", "schedule": "0 11 * * *" }, // 6 AM CDT
+    { "path": "/api/generate-all", "schedule": "0 23 * * *" }  // 6 PM CDT
+  ]
+}
