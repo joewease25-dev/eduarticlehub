@@ -1,0 +1,20 @@
+#!/bin/bash
+API_TOKEN=""
+PROJECT_ID="eduarticlehub"
+topics=(
+  "adventure-games" "botany" "anime-cosplay" "anime-manga" "architecture" "art" "baking-desserts"
+  "barbecues" "business-finance" "businessnews-discussion" "career" "terrariums" "home-cleaning"
+  "cosplay" "crypto" "Bmx" "deer-hunting" "conspiracy" "digitalart" "diy-crafts" "economics"
+  "termux-tutorial" "esports" "filmmaking" "food-recipes" "Travel-Destination" "Linux" "Money-saver"
+  "gardening-farming" "home-improve" "Fishing-guide" "Pet-care" "Urban-gardening" "mental-health"
+  "Tech-reviews" "wild-life" "terrariumhub" "pencilart" "personalfinance" "photography" "deepsea"
+  "studying-education" "sustainable-living" "3d-printing"
+)
+
+for topic in "${topics[@]}"; do
+  curl -X POST "https://api.vercel.com/v9/projects/$PROJECT_ID/domains" \
+    -H "Authorization: Bearer $API_TOKEN" \
+    -H "Content-Type: application/json" \
+    -d "{\"name\": \"$topic.eduarticlehub.com\"}"
+  echo "Added $topic.eduarticlehub.com"
+done
